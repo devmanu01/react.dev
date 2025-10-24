@@ -1,50 +1,148 @@
-*{
+/* RESET & BASE STYLE */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:'Helvetica-neue';
-  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
-body,html{
+body, html {
   height: 100%;
   width: 100%;
-}
-
-body{
-  background-color: #111; 
-}
-
-.parent{
-  padding: 20px;
+  background-color: black;
   display: flex;
-  flex-wrap:wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
 }
 
-.card{
-  width: 300px;
-  border: 1px solid white;
+/* PARENT FLEX CONTAINER (HORIZONTAL + WRAP) */
+.parent {
+  display: flex;
+  flex-wrap: wrap;           /* ✅ allows wrapping */
+  justify-content: center;   /* center align horizontally */
+  align-items: stretch;      /* make cards equal height */
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
+  background-color: black;   /* same as body */
   padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-  background-color: #333;
 }
 
-.card img{
-height: 100px;
-width: 140;
-object-fit: cover;
-border-radius: 50%;
+/* CARD STYLE */
+.card {
+  flex: 1 1 280px;           /* responsive: min 280px width, can grow */
+  max-width: 320px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card p{
-  margin:20px 0;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
 }
 
-.card button{
-  padding: 10px 20px;
-  background-color: white;
+/* ---------- TOP ---------- */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.top button {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #333;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.top button:hover {
+  background: #eee;
+}
+
+/* ---------- CENTRE ---------- */
+.centre h3 {
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.centre h3 span {
+  font-size: 13px;
+  color: #888;
+}
+
+.centre h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin: 8px 0;
+}
+
+.centre div {
+  display: flex;
+  gap: 8px;
+}
+
+.centre div h4 {
+  font-size: 13px;
+  background: #f0f0f0;
+  color: #555;
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+/* ---------- BOTTOM ---------- */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.bottom p {
+  font-size: 13px;
+  color: #777;
+}
+
+.bottom button {
+  background: #000;
+  color: #fff;
   border: none;
-  border-radius: 5px;
-  color: #111;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.bottom button:hover {
+  background: #333;
 }
